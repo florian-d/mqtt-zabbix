@@ -39,3 +39,15 @@ Configuration is stored in /etc/mqtt-zabbix/mqtt-zabbix.cfg
 Message topics are mapped to Zabbix key names, and are stored in /etc/mqtt-zabbix/keys.csv
 When setting up a Zabbix item, ensure you use item type of Zabbix trapper, and check the "Type of information" field is defined correctly. MQTT can transport all sorts of information, and will happily try to deliver a string to your integer data type!
 zbx_mqtt_template.xml is an example Zabbix template
+
+# Docker
+
+You can run mqtt-zabbix via docker:
+
+Place your own config files (```mqtt-zabbix.cfg```, ```keys.csv```) into _yourconfigfolder_ 
+before running this container. 
+
+Start mqtt-zabbix via: 
+```
+docker run -v <yourconfigfolder>:/etc/mqtt-zabbix flodinet/mqtt-zabbix
+```
